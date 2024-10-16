@@ -1,0 +1,108 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratatouille Clicker Game</title>
+    <style>
+      html,
+      body {
+        background: #94765c;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 70px 1fr 1fr;
+        grid-gap: 10px;
+        padding: 10px;
+      }
+      .dialog {
+        grid-area: 1 / 1 / 4 / 2;
+        border: 1px solid;
+        height: 95vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .money {
+        grid-area: 1 / 2 / 2 / 3;
+        font-size: 24px;
+        border: 1px solid;
+        padding: 10px;
+      }
+      .menu {
+        grid-area: 2 / 2 / 4 / 3;
+        border: 1px solid;
+        height: 84vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .cook {
+        grid-area: 1 / 3 / 4 / 4;
+        background: url("pot.png") center/80% no-repeat;
+        border: 1px solid;
+      }
+      .locked {
+        color: gray;
+      }
+
+      .locked {
+        opacity: 0.5;
+      }
+      .progress-bar {
+        width: 0%;
+        height: 10px;
+        background-color: #4caf50;
+        border: 1px solid;
+        transition: width 0.5s ease-in-out;
+      }
+      #cook {
+        width: 400px;
+        height: auto;
+        /* background-color: #f0f0f0; */
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .cook-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dialog"></div>
+      <div class="money" id="money">Money: 0</div>
+      <div class="menu">
+        <div id="dishes">
+          <h1>The Menu</h1>
+          <div id="dish1"></div>
+          <div id="dish2" class="locked"></div>
+          <div id="dish3" class="locked"></div>
+          <div id="dish4" class="locked"></div>
+          <div id="dish5" class="locked"></div>
+        </div>
+        <div id="chefs">
+          <h1>Our Chefes</h1>
+          <p>Recruit more hands to help us speed up the cooking process</p>
+          <div id="chef1">Rémy</div>
+          <div id="chef2" class="locked">Linguini</div>
+          <div id="chef3" class="locked">Émile</div>
+          <div id="chef4" class="locked">Colette</div>
+        </div>
+      </div>
+      <div class="cook" id="cook">Click to cook</div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
